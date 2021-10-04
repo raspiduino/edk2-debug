@@ -1,11 +1,11 @@
-# gen_gdb_script.py - generate gdb script for loading debug symbols.
+# map_to_gdb.py - generate gdb script for loading debug symbols.
 # Copyright 2021 Giang Vinh Loc
 # Under MIT license
 
 # Usage:
-# [python3] ./gen_gdb_script.py path/to/package.map gdb_script_name
+# [python3] ./map_to_gdb.py path/to/package.map gdb_script_name
 # Example:
-# python3 ./gen_gdb_script.py edk2/Build/ArmVirtQemu-AARCH64/DEBUG_GCC5/ArmVirtQemu.map my_gdb_script
+# python3 ./map_to_gdb.py edk2/Build/ArmVirtQemu-AARCH64/DEBUG_GCC5/ArmVirtQemu.map my_gdb_script
 
 import sys
 
