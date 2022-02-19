@@ -24,7 +24,23 @@ gdb = open(sys.argv[2], "w")
 # Find the lines begin with "add-symbol-file"
 for line in dump_line:
     if "add-symbol-file" in line:
-        split = line.split(".dll")
-        gdb.write(split[0] + ".debug" + split[1] + "\n")
+        split = [] # Placeholder
+        ispdb = False
+        
+        # Check for common extensions
+        # ".pdb" is for Windows EFI loader, download from Microsoft debug server
+        for i in [".dll", ".pdb"]:
+            split = line.split(i)
+            if len(split) > 1:
+                if i == ".pdb":
+                    ispdb = True # This is a pdf file
+                break # Got what we want
+        
+        # Write result
+        if ispdb:
+            gdb.write(split[0] + ".pdb" + split[1] + "\n")
+        else:
+            gdb.write(split[0] + ".debug" + split[1] + "\n")
 
 gdb.close()
+print("Converted successfully!")
