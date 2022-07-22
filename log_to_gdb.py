@@ -33,7 +33,7 @@ for line in dump_line:
             split = line.split(i)
             if len(split) > 1:
                 if i == ".pdb":
-                    ispdb = True # This is a pdf file
+                    ispdb = True # This is a pdb file
                 break # Got what we want
         
         # Write result
